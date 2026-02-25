@@ -1,12 +1,16 @@
- import Users from "./Users"
+import Users from "./Users";
+import Bar from "./NavBar";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./Router";
 
 import "./App.css";
 
 function App() {
- 
   return (
     <>
-    Hello world
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </>
   );
 }
