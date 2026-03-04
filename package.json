@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm run dev --prefix React\" \"npm run dev --prefix Express\""
+    "install-all": "npm install --prefix React && npm install --prefix Express",
+    "build": "npm run build --prefix React",
+    "start": "node Express/server.js",
+    "react": "npm run dev --prefix React",
+    "express": "npm run dev --prefix Express",
+    "dev": "concurrently \"npm run express\" \"npm run react\""
   },
   "repository": {
     "type": "git",

@@ -4,11 +4,13 @@ import { Chart } from "primereact/chart";
 export default function Dashboard() {
   const [chartData, setChartData] = useState({});
   const [chartOptions, setChartOptions] = useState({});
+    const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:7000/");
+        const response = await fetch("/api/chart");
         const result = await response.json();
         console.log(response, "result");
 
@@ -45,6 +47,7 @@ export default function Dashboard() {
 
         setChartData(data);
         setChartOptions(options);
+                setLoading(false);
       } catch (error) {
         console.error("Error fetching rating data:", error);
       }
@@ -52,6 +55,10 @@ export default function Dashboard() {
 
     fetchData();
   }, []);
+
+    if (loading) {
+    return <p>Loading chart...</p>;
+  }
 
   return (
     <div className="card">

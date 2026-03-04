@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = 7000;
 const movies = require("./helpers/movies.json");
+const path = require("path")
 
 app.use(
   cors({
@@ -24,7 +24,7 @@ function getChartValues() {
 }
 
  
-app.get("/", (req, res) => {
+app.get("/api/chart", (req, res) => {
   let value = getChartValues();
   try {
     res.status(200).json(value);
@@ -33,6 +33,16 @@ app.get("/", (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Express app listening on port ${port}`);
+app.use(express.static(path.join(__dirname, "../React/dist")));
+
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "../React/dist/index.html"));
+});
+
+
+const PORT = 7000;
+
+
+app.listen(PORT, () => {
+  console.log(`Express app listening on port ${PORT}`);
 });
