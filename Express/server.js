@@ -39,9 +39,7 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../React/dist/index.html"));
 });
 
-
-const PORT = 7000;
-
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}`);
