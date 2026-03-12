@@ -25,7 +25,7 @@ function  Users() {
     <div className="container">
       {users.map((user, i) => (
 
-        <Card key={i} sx={{ maxWidth: 350, margin: "20px", padding: 2 }} >
+        <Card key={i} sx={{ width: 300, margin: "2px", padding: "20px", borderRadius : "12px", borderLeft : "5px solid black" }} >
           <CardContent>
             <Typography variant="h6" gutterBottom>
               User Details

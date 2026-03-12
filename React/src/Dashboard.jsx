@@ -57,7 +57,7 @@ export default function Dashboard() {
   }, []);
 
     if (loading) {
-    return <p>Loading chart...</p>;
+    return (<p>Loading chart...</p>);
   }
 
   return (
